@@ -1,0 +1,13 @@
+package com.gapbunchin.server;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class GapbunchinApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(GapbunchinApplication.class, args);
+    }
+
+}
