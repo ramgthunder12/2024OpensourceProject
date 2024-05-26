@@ -8,7 +8,8 @@ group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 
 java {
-    sourceCompatibility = '17'
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 configurations {
@@ -25,13 +26,11 @@ dependencies {
     implementation 'org.hibernate:hibernate-core:5.4.32.Final'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'javax.persistence:javax.persistence-api:2.2'
-    implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.4.1'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.3'
     compileOnly 'org.projectlombok:lombok'
-    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
 }
 
 tasks.named('bootBuildImage') {
