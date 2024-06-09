@@ -1,5 +1,6 @@
 package com.gapbunchin.server.controller;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.gapbunchin.server.entity.User;
 import com.gapbunchin.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,11 @@ public class UserController {
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Integer id) {
         Optional<User> user = userService.findById(id);
+        return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+    @GetMapping("/login/{nickname}")
+    public ResponseEntity<User> getUserByNickname(@PathVariable String nickname) {
+        Optional<User> user = userService.findByNickname(nickname);
         return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
