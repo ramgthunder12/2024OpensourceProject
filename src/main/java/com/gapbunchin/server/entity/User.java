@@ -1,12 +1,11 @@
 package com.gapbunchin.server.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
 public class User {
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -26,6 +25,8 @@ public class User {
 
     @Column(name = "location")
     private String location;
+
+    public User() { }
 
     public enum Gender {
         male,

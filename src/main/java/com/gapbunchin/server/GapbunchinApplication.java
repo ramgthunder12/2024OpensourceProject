@@ -11,8 +11,5 @@ public class GapbunchinApplication {
     public static void main(String[] args) {
         SpringApplication.run(GapbunchinApplication.class, args);
     }
-//        ConfigurableApplicationContext context = SpringApplication.run(GapbunchinApplication.class, args);
-//
-//        UserService userService = context.getBean(UserService.class);
 
 }

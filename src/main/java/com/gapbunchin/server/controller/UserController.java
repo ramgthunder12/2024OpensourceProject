@@ -56,6 +56,19 @@ public class UserController {
         User updatedUser = userService.save(user);
         return ResponseEntity.ok(updatedUser);
     }
+    @PutMapping("/location/{id}")
+    public ResponseEntity<User> updateUserLocation(@PathVariable Integer id, @RequestBody User userDetails) {
+        Optional<User> userOptional = userService.findById(id);
+        if (!userOptional.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        User user = userOptional.get();
+        user.setLocation(userDetails.getLocation());
+
+        User updatedUser = userService.save(user);
+        return ResponseEntity.ok(updatedUser);
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Integer id) {

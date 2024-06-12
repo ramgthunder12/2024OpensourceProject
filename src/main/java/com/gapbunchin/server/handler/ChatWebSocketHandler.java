@@ -31,4 +31,10 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
     public void afterConnectionClosed(WebSocketSession session, org.springframework.web.socket.CloseStatus status) throws Exception {
         sessions.remove(session);
     }
+
+    public void  sendMessageToAll(String message) throws Exception {
+        for (WebSocketSession session : sessions) {
+            session.sendMessage(new TextMessage(message));
+        }
+    }
 }
